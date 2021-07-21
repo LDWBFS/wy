@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.wy.common.mapper.CountMapper">
+
+        <update id="update" parameterType="com.example.wy.common.entity.Count">
+        update count set count=#{count} where most=#{most} and phone=#{phone}
+    </update>
+    <select id="selectAllByMost" resultType="com.example.wy.common.entity.Count">
+    select * from count where most=#{most}
+ </select>
+    <select id="selectAllByPhoneAndMost" resultType="com.example.wy.common.entity.Count">
+        select * from count where most=#{most} AND phone = #{phone}
+    </select>
+</mapper>

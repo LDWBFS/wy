@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.wy.common.mapper.PrescriptionMapper">
+    <resultMap id="BaseResultMap" type="com.example.wy.common.entity.Prescription" >
+        <result column="prescription" property="prescription" />
+        <result column="summarize" property="summarize" />
+        <result column="recipe" property="recipe"  />
+        <result column="dosage" property="dosage"  />
+        <result column="decoction" property="decoction"  />
+        <result column="classic" property="classic"  />
+        <result column="demands" property="demands"  />
+        <result column="disease" property="disease"  />
+        <result column="addition" property="addition"/>
+        <result column="pharmacology" property="pharmacology" />
+        <result column="announce" property="announce"/>
+        <result column="family" property="family"/>
+    </resultMap>
+    <select id="selectAllByDisease" resultType="com.example.wy.common.entity.Prescription">
+        select * from prescription where disease like concat('%',#{diseases},'%')
+    </select>
+    <select id="selectOneByPrescription" resultType="com.example.wy.common.entity.Prescription">
+        select * from prescription where prescription=#{prescription}
+    </select>
+    <select id="selectOneByPrescription1" resultType="com.example.wy.common.entity.Prescription">
+        select * from prescription where prescription like  concat('%',#{prescription},'%')
+    </select>
+
+
+</mapper>
